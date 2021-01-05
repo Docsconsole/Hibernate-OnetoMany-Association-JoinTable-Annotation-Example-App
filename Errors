@@ -1,0 +1,105 @@
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:91)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:152)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:952)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:822)
+	... 41 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.base/java.net.PlainSocketImpl.connect0(Native Method)
+	at java.base/java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:101)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
+	at java.base/java.net.Socket.connect(Socket.java:591)
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:173)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65)
+	
+	
+	
+Solution: 
+	Please start the MySql server in local system.
+	
+	
+================================================================================================================================================	
+org.hibernate.MappingException: Unknown entity: com.docsconsole.tutorials.hibernate5.entity.Author
+	at org.hibernate.metamodel.internal.MetamodelImpl.entityPersister(MetamodelImpl.java:704)
+	at org.hibernate.internal.SessionImpl.getEntityPersister(SessionImpl.java:1731)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:118)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:191)
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:176)
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:73)
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:712)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:704)
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:699)
+	at com.docsconsole.tutorials.hibernate5.client.MainClient.main(MainClient.java:44)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.codehaus.mojo.exec.ExecJavaMojo$1.run(ExecJavaMojo.java:293)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+	
+	
+================================================================================================================================================
+Caused by: org.hibernate.boot.MappingNotFoundException: Mapping (RESOURCE) not found : com.docsconsole.tutorials.hibernate5.entity.Author : origin(com.docsconsole.tutorials.hibernate5.entity.Author)
+	at org.hibernate.boot.spi.XmlMappingBinderAccess.bind(XmlMappingBinderAccess.java:56)
+	at org.hibernate.boot.MetadataSources.addResource(MetadataSources.java:275)
+	at org.hibernate.boot.cfgxml.spi.MappingReference.apply(MappingReference.java:70)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:468)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:84)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:689)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:724)
+	at com.docsconsole.tutorials.hibernate5.util.HibernateUtil.buildSessionFactory(HibernateUtil.java:14)
+	
+	
+Solution:
+	in resource attribute the value should be hbm.xml file.
+	
+	
+================================================================================================================================================
+
+Caused by: java.lang.ExceptionInInitializerError
+	at com.docsconsole.tutorials.hibernate5.util.HibernateUtil.buildSessionFactory(HibernateUtil.java:18)
+	at com.docsconsole.tutorials.hibernate5.util.HibernateUtil.<clinit>(HibernateUtil.java:8)
+	at com.docsconsole.tutorials.hibernate5.client.MainClient.main(MainClient.java:37)
+	... 6 more
+Caused by: org.hibernate.property.access.spi.PropertyAccessBuildingException: Could not locate getter for property named [com.docsconsole.tutorials.hibernate5.entity.Book#bookName]
+	at org.hibernate.property.access.internal.PropertyAccessMixedImpl.<init>(PropertyAccessMixedImpl.java:65)
+	at org.hibernate.property.access.internal.PropertyAccessStrategyMixedImpl.buildPropertyAccess(PropertyAccessStrategyMixedImpl.java:25)
+	at org.hibernate.internal.util.ReflectHelper.getter(ReflectHelper.java:238)
+	at org.hibernate.internal.util.ReflectHelper.reflectedPropertyClass(ReflectHelper.java:218)
+	at org.hibernate.mapping.SimpleValue.setTypeUsingReflection(SimpleValue.java:513)
+	at org.hibernate.boot.model.source.internal.hbm.ModelBinder.prepareValueTypeViaReflection(ModelBinder.java:2459)
+	at org.hibernate.boot.model.source.internal.hbm.ModelBinder.createBasicAttribute(ModelBinder.java:1917)
+	at org.hibernate.boot.model.source.internal.hbm.ModelBinder.bindAllEntityAttributes(ModelBinder.java:1163)
+	at org.hibernate.boot.model.source.internal.hbm.ModelBinder.bindRootEntity(ModelBinder.java:273)
+	at org.hibernate.boot.model.source.internal.hbm.ModelBinder.bindEntityHierarchy(ModelBinder.java:193)
+	at org.hibernate.boot.model.source.internal.hbm.HbmMetadataSourceProcessorImpl.processEntityHierarchies(HbmMetadataSourceProcessorImpl.java:144)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess$1.processEntityHierarchies(MetadataBuildingProcess.java:226)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:273)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:83)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:473)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:84)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:689)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:724)
+	at com.docsconsole.tutorials.hibernate5.util.HibernateUtil.buildSessionFactory(HibernateUtil.java:14)
+	
+	
+	
+Solution:
+	in Entity class the bookName should be existed as property.
+	
